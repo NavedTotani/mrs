@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='media/favicon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css">
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <title>MRS - Movies Recommendation System</title>
+</head>
+
+<body>
+    <!-- Search-area -->
+    <section class="search-menu">
+        <div class="search-inner-menu">
+            <div class="welcome-entities">
+                <h1>Welcome to <u>Movies Recommendation System</u></h1>
+                <h4>Search for your favourite movie's best matches</h4>
+            </div>
+            <form action="/" method="POST" class="search-entities" autocomplete="off">
+                <label for="movie-search"><i class="bi bi-search"></i></label>
+                <input type="text" name="movie-search" id="movie-search" placeholder="Explore the best of movies" onkeyup="matching(this.value)">
+                <input type="submit" value="Search" class="btn-search" disabled>
+            </form>
+            <ul class="suggestions-ul"></ul>
+        </div>
+    </section>
+
+    <section>
+        <div class="result"></div>
+    </section>
+    <section>
+        <div class="fail">
+            <span><strong>Sorry</strong> The movie you requested is not in our database. Please check the spelling or try with some other movies</span>
+        </div>
+    </section>
+    <section class="loading-spin">
+        <div class="spin-box">
+            <div class="spin"></div>
+            <div class="text">Loading...</div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/recommend.js') }}"></script>
+</body>
+
+</html>

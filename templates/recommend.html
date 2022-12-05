@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}}</title>
+</head>
+
+<body>
+    <sectoin class="main-movie">
+        <div class="content">
+            <div class="header">
+            </div>
+            <div class="body">
+                <img src="{{poster}}">
+                <div class="body-content">
+                    <table>
+                        <tbody>
+                            <tr id="title">
+                                <td VALIGN=TOP>Title:</td>
+                                <td>{{title}}</td>
+                            </tr>
+                            <tr>
+                                <td>Genres:</td>
+                                <td>{{genres}}</td>
+                            </tr>
+                            <tr>
+                                <td>Duration:</td>
+                                <td>{{runtime}}</td>
+                            </tr>
+                            <tr>
+                                <td VALIGN=TOP>Storyline:</td>
+                                <td>{{overview}}</td>
+                            </tr>
+                            <tr>
+                                <td>Rating:</td>
+                                <td>{{vote_average}}/10 ({{vote_count}} votes)</td>
+                            </tr>
+                            <tr>
+                                <td>Release Date:</td>
+                                <td>{{release_date}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </sectoin>
+
+    {% if movie_cards|length > 1 %}
+    <section class="r-movies">
+        <h2>Similar moives to the <mf>{{title}}</mf></h2>
+        <div class="rm-content">
+            {% for rm_poster, rm_title in movie_cards.items() %}
+            {% if rm_title != title %}
+            {% if rm_title != "The Helix... Loaded" %}
+            <div class="rm-card" title="{{rm_title}}" onclick="recommendcard(this)">
+                <div class="img"><img src="{{rm_poster}}"></div>
+                <div class="title">
+                    <h3>{{rm_title|capitalize}}</h3>
+                </div>
+            </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+</body>
+
+</html>
