@@ -60,19 +60,19 @@ function matching(txt) {
 if (!search_btn.hasClass('disabled')) {
   $('.search-entities').on('submit', function (event) {
     event.preventDefault();
-    const my_api_key = '4d2cca396cb3e1aff2e8887d00b673bd';
+    const my_api_key = 'YOUR_API_KEY';
     load_details(my_api_key, title);
   })
 }
 search_btn.click(function (event) {
   event.preventDefault();
-  const my_api_key = '4d2cca396cb3e1aff2e8887d00b673bd';
+  const my_api_key = 'YOUR_API_KEY';
   load_details(my_api_key, title);
 })
 
 // will be invoked when clicking on the recommended movies
 const recommendcard = (e) => {
-  var my_api_key = '4d2cca396cb3e1aff2e8887d00b673bd';
+  var my_api_key = 'YOUR_API_KEY';
   var title = e.getAttribute('title');
   load_details(my_api_key, title);
 }
